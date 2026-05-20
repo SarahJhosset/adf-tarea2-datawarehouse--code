@@ -431,29 +431,50 @@
 				"type": "AzureSqlTable",
 				"schema": [
 					{
-						"name": "vacuna_key",
+						"name": "fecha_key",
 						"type": "int",
 						"precision": 10
 					},
 					{
-						"name": "vacuna_id",
+						"name": "fecha",
+						"type": "date"
+					},
+					{
+						"name": "dia_semana",
+						"type": "tinyint",
+						"precision": 3
+					},
+					{
+						"name": "nombre_dia",
 						"type": "varchar"
 					},
 					{
-						"name": "vacuna_nombre",
+						"name": "dia_mes",
+						"type": "tinyint",
+						"precision": 3
+					},
+					{
+						"name": "mes",
+						"type": "tinyint",
+						"precision": 3
+					},
+					{
+						"name": "nombre_mes",
 						"type": "varchar"
 					},
 					{
-						"name": "enfermedad_previene",
-						"type": "varchar"
+						"name": "trimestre",
+						"type": "tinyint",
+						"precision": 3
 					},
 					{
-						"name": "grupo_pai",
-						"type": "varchar"
+						"name": "anio",
+						"type": "smallint",
+						"precision": 5
 					},
 					{
-						"name": "via_administracion",
-						"type": "varchar"
+						"name": "es_fin_semana",
+						"type": "bit"
 					}
 				],
 				"typeProperties": {
@@ -630,66 +651,61 @@
 				"type": "AzureSqlTable",
 				"schema": [
 					{
-						"name": "vacuna_id",
+						"name": "establecimiento_id",
 						"type": "varchar"
 					},
 					{
-						"name": "vacuna_nombre",
+						"name": "nombre_establecimiento",
 						"type": "varchar"
 					},
 					{
-						"name": "enfermedad_previene",
+						"name": "tipo_establecimiento",
 						"type": "varchar"
 					},
 					{
-						"name": "grupo_pai",
-						"type": "varchar"
-					},
-					{
-						"name": "numero_dosis",
+						"name": "nivel_atencion",
 						"type": "int",
 						"precision": 10
 					},
 					{
-						"name": "dosis_descripcion",
+						"name": "zona",
 						"type": "varchar"
 					},
 					{
-						"name": "edad_aplicacion_descripcion",
+						"name": "sedes",
 						"type": "varchar"
 					},
 					{
-						"name": "edad_minima_dias",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "edad_maxima_dias",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "intervalo_minimo_dias",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "via_administracion",
+						"name": "red_salud",
 						"type": "varchar"
 					},
 					{
-						"name": "sitio_aplicacion",
+						"name": "departamento",
 						"type": "varchar"
 					},
 					{
-						"name": "dosis_ml",
+						"name": "municipio",
+						"type": "varchar"
+					},
+					{
+						"name": "latitud",
 						"type": "decimal",
-						"precision": 4,
-						"scale": 2
+						"precision": 12,
+						"scale": 8
 					},
 					{
-						"name": "condicion_especial",
-						"type": "varchar"
+						"name": "longitud",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 8
+					},
+					{
+						"name": "tiene_cadena_frio",
+						"type": "bit"
+					},
+					{
+						"name": "activo",
+						"type": "bit"
 					}
 				],
 				"typeProperties": {
@@ -1271,7 +1287,7 @@
 						"fileName": "vacunacion_santa_cruz.csv",
 						"container": "bronze"
 					},
-					"columnDelimiter": ",",
+					"columnDelimiter": ";",
 					"escapeChar": "\\",
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
@@ -1484,20 +1500,19 @@
 						"derivedColumn2 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     input(",
-						"          vacuna_id as string,",
-						"          vacuna_nombre as string,",
-						"          enfermedad_previene as string,",
-						"          grupo_pai as string,",
-						"          numero_dosis as integer,",
-						"          dosis_descripcion as string,",
-						"          edad_aplicacion_descripcion as string,",
-						"          edad_minima_dias as integer,",
-						"          edad_maxima_dias as integer,",
-						"          intervalo_minimo_dias as integer,",
-						"          via_administracion as string,",
-						"          sitio_aplicacion as string,",
-						"          dosis_ml as decimal(4,2),",
-						"          condicion_especial as string",
+						"          establecimiento_id as string,",
+						"          nombre_establecimiento as string,",
+						"          tipo_establecimiento as string,",
+						"          nivel_atencion as integer,",
+						"          zona as string,",
+						"          sedes as string,",
+						"          red_salud as string,",
+						"          departamento as string,",
+						"          municipio as string,",
+						"          latitud as decimal(12,8),",
+						"          longitud as decimal(12,8),",
+						"          tiene_cadena_frio as boolean,",
+						"          activo as boolean",
 						"     ),",
 						"     deletable:false,",
 						"     insertable:true,",
