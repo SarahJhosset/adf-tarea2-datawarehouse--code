@@ -12,29 +12,50 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "vacuna_key",
+				"name": "fecha_key",
 				"type": "int",
 				"precision": 10
 			},
 			{
-				"name": "vacuna_id",
+				"name": "fecha",
+				"type": "date"
+			},
+			{
+				"name": "dia_semana",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "nombre_dia",
 				"type": "varchar"
 			},
 			{
-				"name": "vacuna_nombre",
+				"name": "dia_mes",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "mes",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "nombre_mes",
 				"type": "varchar"
 			},
 			{
-				"name": "enfermedad_previene",
-				"type": "varchar"
+				"name": "trimestre",
+				"type": "tinyint",
+				"precision": 3
 			},
 			{
-				"name": "grupo_pai",
-				"type": "varchar"
+				"name": "anio",
+				"type": "smallint",
+				"precision": 5
 			},
 			{
-				"name": "via_administracion",
-				"type": "varchar"
+				"name": "es_fin_semana",
+				"type": "bit"
 			}
 		],
 		"typeProperties": {
